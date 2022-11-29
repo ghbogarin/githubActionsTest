@@ -5,6 +5,8 @@ jobs:
   run_testing_suites:
     name: Custom Web Testing
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
     steps:
       - name: Check out repository
         uses: actions/checkout@master
