@@ -23,6 +23,7 @@ permissions:
 jobs:
   on_trigger:
     name: On trigger
+    runs-on: ubuntu-latest
 
     # We will only run this action when:
     # 1. This repository isn't the template repository
