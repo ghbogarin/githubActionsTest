@@ -9,4 +9,4 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@master
       - name: Run tests
-        uses: ./github/custom@main
+        uses: ./.github/custom
