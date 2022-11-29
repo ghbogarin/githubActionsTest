@@ -9,4 +9,4 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@master
       - name: Run tests
-        uses: muxinc/playback-testing/.github/custom@master
+        uses: .github/custom@master
