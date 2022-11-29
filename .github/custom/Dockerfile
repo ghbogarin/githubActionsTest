@@ -3,14 +3,8 @@
 # Container image
 FROM ubuntu:20.04
 
-RUN firefox --version
-RUN geckodriver --version
-
 RUN apt update
 RUN apt upgrade -y
-
-RUN firefox --version
-RUN geckodriver --version
 
 RUN apt install -y curl unzip xvfb libxi6 libgconf-2-4 gnupg wget ffmpeg
 
