@@ -1,1 +1,1 @@
-geckodriver --version
+firefox --version

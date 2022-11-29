@@ -23,8 +23,6 @@ permissions:
 jobs:
   on_trigger:
     name: On trigger
-    runs-on: ubuntu-latest
-
     # We will only run this action when:
     # 1. This repository isn't the template repository
     # Reference https://docs.github.com/en/actions/learn-github-actions/contexts
@@ -52,4 +50,4 @@ jobs:
           branch_name: test-workflow
       - name: Check geckodriver version
         run: |
-          geckodriver --version
+          firefox --version
