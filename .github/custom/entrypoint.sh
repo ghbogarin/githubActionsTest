@@ -1,5 +1,5 @@
 
-#!/bin/sh -l
+#!/bin/bash
 
 echo "------------------Firefox Version entrypoint-----------------------"
 echo ""
