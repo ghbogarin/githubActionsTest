@@ -2,7 +2,7 @@
 
 echo "------------------Firefox Version entrypoint-----------------------"
 echo ""
-firefox --version
+sudo firefox --version
 
 echo "------------------Geckodriver CAT-----------------------"
 echo ""
