@@ -5,7 +5,9 @@ RUN apt update
 RUN apt upgrade -y
 
 ARG DEBIAN_FRONTEND=noninteractive
-RUN apt install -y curl unzip xvfb libxi6 libgtk-3-dev libgconf-2-4 gnupg wget ffmpeg
+RUN apt install -y curl unzip xvfb libxi6 libgtk-3-dev libgconf-2-4 libdbus-glib-1-2 gnupg wget ffmpeg
+
+# RUN apt install -y curl unzip 
 
 # Install Node.js
 RUN curl -sL https://deb.nodesource.com/setup_14.x | bash
@@ -55,7 +57,7 @@ USER 1200
 #============================================
 # Dumping Browser name and version for config
 #============================================
-RUN echo "firefox" > /opt/selenium/browser_name
+# RUN echo "firefox" > /opt/selenium/browser_name
 
 # Copies entrypoint script
 COPY entrypoint.sh /entrypoint.sh
