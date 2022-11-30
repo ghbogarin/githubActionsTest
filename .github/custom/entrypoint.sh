@@ -7,4 +7,4 @@ firefox --version
 
 echo "------------------Geckodriver Versionn entrypoint-----------------------"
 echo ""
-firefox --version
+geckodriver --version

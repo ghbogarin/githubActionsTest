@@ -23,7 +23,6 @@ RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key
 RUN apt install -y firefox
 
 RUN firefox --version
-RUN geckodriver --version
 
 # Copies entrypoint script
 COPY entrypoint.sh /entrypoint.sh
