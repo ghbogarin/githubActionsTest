@@ -18,6 +18,14 @@ echo "------------------Geckodriver Version entrypoint-----------------------"
 echo ""
 geckodriver --version
 
+echo "------------------Geckodriver PID-----------------------"
+echo ""
+pidof geckodriver
+
+echo "------------------Geckodriver CAT-----------------------"
+echo ""
+cat etc/hosts
+
 echo "---------Starting---------"
 echo ""
 node index.js
