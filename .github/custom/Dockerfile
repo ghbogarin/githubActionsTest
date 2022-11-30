@@ -5,6 +5,8 @@ RUN apt update
 RUN apt upgrade -y
 
 ARG DEBIAN_FRONTEND=noninteractive
+USER root
+
 RUN apt install -y curl unzip xvfb libxi6 libgtk-3-dev libgconf-2-4 libdbus-glib-1-2 gnupg wget ffmpeg
 
 # RUN apt install -y curl unzip 
@@ -19,8 +21,6 @@ RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key
   echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list && \
   apt-get update -y && \
   apt-get install -y google-chrome-stable
-
-USER root
 
 #=========
 # Firefox
@@ -51,8 +51,6 @@ RUN GK_VERSION=$(if [ ${GECKODRIVER_VERSION:-latest} = "latest" ]; then echo "0.
   && mv /opt/geckodriver /opt/geckodriver-$GK_VERSION \
   && chmod 755 /opt/geckodriver-$GK_VERSION \
   && ln -fs /opt/geckodriver-$GK_VERSION /usr/bin/geckodriver
-
-USER 1200
 
 #============================================
 # Dumping Browser name and version for config
