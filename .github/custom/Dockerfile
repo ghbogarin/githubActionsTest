@@ -6,7 +6,7 @@ RUN apt upgrade -y
 
 ARG DEBIAN_FRONTEND=noninteractive
 USER root
-
+RUN cat /etc/hosts
 RUN apt install -y curl unzip xvfb libxi6 libgtk-3-dev libgconf-2-4 libdbus-glib-1-2 gnupg wget ffmpeg
 
 # RUN apt install -y curl unzip 
