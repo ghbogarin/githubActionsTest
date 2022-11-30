@@ -9,7 +9,7 @@ echo "------------------Run Tests-----------------------"
 echo ""
 npm install -g npm
 
-cd ./.github/custom/testProject
+cd .github/custom/testProject
 
 echo "---------Installing Dependencies---------"
 echo ""
