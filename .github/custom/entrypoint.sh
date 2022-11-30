@@ -2,22 +2,22 @@
 
 echo "------------------Firefox Version entrypoint-----------------------"
 echo ""
-# firefox --version
+firefox --version
 
-# echo "------------------Run Tests-----------------------"
-# echo ""
-# npm install -g npm
+echo "------------------Run Tests-----------------------"
+echo ""
+npm install -g npm
 
-# cd .github/custom/testProject
+cd .github/custom/testProject
 
-# echo "---------Installing Dependencies---------"
-# echo ""
-# npm i
+echo "---------Installing Dependencies---------"
+echo ""
+npm i
 
-# echo "------------------Geckodriver Version entrypoint-----------------------"
-# echo ""
-# geckodriver --version
+echo "------------------Geckodriver Version entrypoint-----------------------"
+echo ""
+geckodriver --version
 
-# echo "---------Starting---------"
-# echo ""
-# node index.js
+echo "---------Starting---------"
+echo ""
+node index.js
