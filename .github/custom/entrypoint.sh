@@ -4,6 +4,10 @@ echo "------------------Firefox Version entrypoint-----------------------"
 echo ""
 firefox --version
 
+echo "------------------Geckodriver CAT-----------------------"
+echo ""
+cat etc/hosts
+
 echo "------------------Run Tests-----------------------"
 echo ""
 npm install -g npm
@@ -21,10 +25,6 @@ geckodriver --version
 echo "------------------Geckodriver PID-----------------------"
 echo ""
 pidof geckodriver
-
-echo "------------------Geckodriver CAT-----------------------"
-echo ""
-cat etc/hosts
 
 echo "---------Starting---------"
 echo ""
