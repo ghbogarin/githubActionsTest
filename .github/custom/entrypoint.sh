@@ -3,7 +3,7 @@
 
 echo "------------------Firefox Version entrypoint-----------------------"
 echo ""
-firefox --version
+# firefox --version
 
 # echo "------------------Run Tests-----------------------"
 # echo ""
