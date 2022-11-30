@@ -50,29 +50,29 @@ RUN apt-get update && \
 # Firefox
 #==========
 
-ENV FF_LANG="en-US" \
-    FF_BASE_URL="https://archive.mozilla.org/pub" \
-    FF_PLATFORM="linux-x86_64" \
-    FF_INNER_PATH="firefox/releases" \
-    FF_VERSION="105.0.1"
+# ENV FF_LANG="en-US" \
+#     FF_BASE_URL="https://archive.mozilla.org/pub" \
+#     FF_PLATFORM="linux-x86_64" \
+#     FF_INNER_PATH="firefox/releases" \
+#     FF_VERSION="105.0.1"
 
-ENV FF_COMP="firefox-${FF_VERSION}.tar.bz2"
-ENV FF_URL="${FF_BASE_URL}/${FF_INNER_PATH}/${FF_VERSION}/${FF_PLATFORM}/${FF_LANG}/${FF_COMP}"
+# ENV FF_COMP="firefox-${FF_VERSION}.tar.bz2"
+# ENV FF_URL="${FF_BASE_URL}/${FF_INNER_PATH}/${FF_VERSION}/${FF_PLATFORM}/${FF_LANG}/${FF_COMP}"
 
-RUN apt-get update && \
-    apt-get install -y --no-install-recommends unzip && \
-    apt-get install -y --no-install-recommends \
-      bzip2 \
-    && \
-    rm -rf /var/lib/apt/lists/* /var/cache/apt/* && \
-    wget "${FF_URL}" \
-      -O /tmp/firefox-linux.tar.bz2 && \
-    tar -xvf /tmp/firefox-linux.tar.bz2 -C /opt && \
+# RUN apt-get update && \
+#     apt-get install -y --no-install-recommends unzip && \
+#     apt-get install -y --no-install-recommends \
+#       bzip2 \
+#     && \
+#     rm -rf /var/lib/apt/lists/* /var/cache/apt/* && \
+#     wget "${FF_URL}" \
+#       -O /tmp/firefox-linux.tar.bz2 && \
+#     tar -xvf /tmp/firefox-linux.tar.bz2 -C /opt && \
 
-    ln -s /opt/firefox/firefox /usr/bin/firefox && \
-    chmod +x /usr/bin/firefox && \
-    rm /tmp/firefox-linux.tar.bz2 && \
-    apt-get purge -y --auto-remove bzip2
+#     ln -s /opt/firefox/firefox /usr/bin/firefox && \
+#     chmod +x /usr/bin/firefox && \
+#     rm /tmp/firefox-linux.tar.bz2 && \
+#     apt-get purge -y --auto-remove bzip2
 
 
 #---------------------------
