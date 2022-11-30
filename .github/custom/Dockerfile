@@ -18,12 +18,6 @@ RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key
   apt-get update -y && \
   apt-get install -y google-chrome-stable
 
-ARG NAMESPACE
-ARG VERSION
-ARG AUTHORS
-FROM ${NAMESPACE}/node-base:${VERSION}
-LABEL authors=${AUTHORS}
-
 USER root
 
 #=========
