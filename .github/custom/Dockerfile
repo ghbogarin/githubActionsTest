@@ -4,6 +4,7 @@ FROM ubuntu:20.04
 RUN apt update
 RUN apt upgrade -y
 
+ARG DEBIAN_FRONTEND=noninteractive
 RUN apt install -y curl unzip xvfb libxi6 libgtk-3-dev libgconf-2-4 gnupg wget ffmpeg
 
 # Install Node.js
@@ -28,7 +29,6 @@ USER root
 #=========
 # Firefox
 #=========
-ARG DEBIAN_FRONTEND=noninteractive
 ARG FIREFOX_VERSION=latest
 RUN FIREFOX_DOWNLOAD_URL=$(if [ $FIREFOX_VERSION = "latest" ] || [ $FIREFOX_VERSION = "beta-latest" ] || [ $FIREFOX_VERSION = "nightly-latest" ] || [ $FIREFOX_VERSION = "devedition-latest" ] || [ $FIREFOX_VERSION = "esr-latest" ]; then echo "https://download.mozilla.org/?product=firefox-$FIREFOX_VERSION-ssl&os=linux64&lang=en-US"; else echo "https://download-installer.cdn.mozilla.net/pub/firefox/releases/$FIREFOX_VERSION/linux-x86_64/en-US/firefox-$FIREFOX_VERSION.tar.bz2"; fi) \
   && apt-get update -qqy \
