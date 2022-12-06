@@ -1,5 +1,5 @@
 # Container image
-FROM ubuntu:20.04
+FROM ubuntu:22.04
 
 RUN apt update
 RUN apt upgrade -y
@@ -14,43 +14,7 @@ RUN apt install -y curl unzip xvfb libxi6 libgtk-3-dev libgconf-2-4 libdbus-glib
 RUN curl -sL https://deb.nodesource.com/setup_14.x | bash
 RUN apt-get install --yes nodejs
 
-
-# # Install Chrome
-# RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - && \
-#   echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list && \
-#   apt-get update -y && \
-#   apt-get install -y google-chrome-stable
-
-#===============
-# Gecko Driver
-#===============
-
-ENV GECKODRIVER_VERSION 0.32.0
-RUN apt-get update && \
-    apt-get install -y --no-install-recommends unzip && \
-    apt-get install -y --no-install-recommends \
-      bzip2 \
-      libgconf-2-4 \
-      libglib2.0-dev \
-      libnss3-dev \
-      libxi6 \
-      xvfb \
-    && \
-    rm -rf /var/lib/apt/lists/* \
-            /var/cache/apt/* && \
-    wget https://github.com/mozilla/geckodriver/releases/download/v$GECKODRIVER_VERSION/geckodriver-v$GECKODRIVER_VERSION-linux64.tar.gz && \
-    tar -zxvf geckodriver-v$GECKODRIVER_VERSION-linux64.tar.gz && \
-    mv geckodriver /usr/local/bin/ && \
-    chmod +x /usr/local/bin/geckodriver && \
-    rm geckodriver-v$GECKODRIVER_VERSION-linux64.tar.gz && \
-    apt-get purge -y --auto-remove bzip2 && \
-    geckodriver --allow-hosts=localhost
-
-#==========
-# Firefox
-#==========
-
-RUN apt install -y firefox
+RUN apt install firefox 
 
 #---------------------------
 # Dependencies for headless
