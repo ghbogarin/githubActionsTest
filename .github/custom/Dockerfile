@@ -26,7 +26,7 @@ RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key
 # Gecko Driver
 #===============
 
-ENV GECKODRIVER_VERSION 0.31.0
+ENV GECKODRIVER_VERSION 0.32.0
 RUN apt-get update && \
     apt-get install -y --no-install-recommends unzip && \
     apt-get install -y --no-install-recommends \
@@ -44,7 +44,8 @@ RUN apt-get update && \
     mv geckodriver /usr/local/bin/ && \
     chmod +x /usr/local/bin/geckodriver && \
     rm geckodriver-v$GECKODRIVER_VERSION-linux64.tar.gz && \
-    apt-get purge -y --auto-remove bzip2
+    apt-get purge -y --auto-remove bzip2 && \
+    geckodriver --profile-root=~/tmp
 
 #==========
 # Firefox
