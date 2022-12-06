@@ -6,7 +6,6 @@ RUN apt upgrade -y
 
 ARG DEBIAN_FRONTEND=noninteractive
 USER root
-RUN cat /etc/hosts
 RUN apt install -y curl unzip xvfb libxi6 libgtk-3-dev libgconf-2-4 libdbus-glib-1-2 gnupg wget ffmpeg
 
 # RUN apt install -y curl unzip 
@@ -44,18 +43,14 @@ RUN apt-get update && \
     mv geckodriver /usr/local/bin/ && \
     chmod +x /usr/local/bin/geckodriver && \
     rm geckodriver-v$GECKODRIVER_VERSION-linux64.tar.gz && \
-    apt-get purge -y --auto-remove bzip2 
-    
+    apt-get purge -y --auto-remove bzip2 && \
+    geckodriver --allow-hosts=localhost
 
 #==========
 # Firefox
 #==========
 
-RUN wget https://ftp.mozilla.org/pub/firefox/releases/106.0.2/linux-x86_64/en-GB/firefox-106.0.2.tar.bz2
-RUN tar xjf firefox-106.0.2.tar.bz2
-RUN mv firefox /opt
-RUN ln -s /opt/firefox/firefox /usr/local/bin/firefox
-RUN wget https://raw.githubusercontent.com/mozilla/sumo-kb/main/install-firefox-linux/firefox.desktop -P /usr/local/share/applications
+RUN apt install -y firefox
 
 #---------------------------
 # Dependencies for headless
@@ -68,10 +63,6 @@ RUN apt-get update && \
     ' && \
     apt-get install -y --no-install-recommends $headlessDeps && \
     rm -rf /var/lib/apt/lists/* /var/cache/apt/*
-
-
-RUN cat /etc/hosts
-
 
 #============================================
 # Dumping Browser name and version for config
