@@ -6,7 +6,7 @@ const driver = await new Builder()
 .setFirefoxOptions(firefoxOptions)
 .build();
 try {
-    await driver.get('https://aulas.ort.edu.uy/login/index.php');
+    await driver.get('https://qualabs.com/');
     const title = await driver.getTitle();
     console.log(title);
     console.log("termina");

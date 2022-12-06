@@ -16,11 +16,11 @@ RUN curl -sL https://deb.nodesource.com/setup_14.x | bash
 RUN apt-get install --yes nodejs
 
 
-# Install Chrome
-RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - && \
-  echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list && \
-  apt-get update -y && \
-  apt-get install -y google-chrome-stable
+# # Install Chrome
+# RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - && \
+#   echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list && \
+#   apt-get update -y && \
+#   apt-get install -y google-chrome-stable
 
 #===============
 # Gecko Driver
@@ -44,9 +44,10 @@ RUN apt-get update && \
     mv geckodriver /usr/local/bin/ && \
     chmod +x /usr/local/bin/geckodriver && \
     rm geckodriver-v$GECKODRIVER_VERSION-linux64.tar.gz && \
-    apt-get purge -y --auto-remove bzip2 
-
-RUN TMPDIR=$HOME/tmp geckodriver
+    apt-get purge -y --auto-remove bzip2 && \
+    geckodriver --log && \
+    geckodriver --allow-hosts=localhost
+    
 
 #==========
 # Firefox
