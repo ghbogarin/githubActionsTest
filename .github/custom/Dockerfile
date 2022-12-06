@@ -44,7 +44,7 @@ RUN apt-get update && \
     mv geckodriver /usr/local/bin/ && \
     chmod +x /usr/local/bin/geckodriver && \
     rm geckodriver-v$GECKODRIVER_VERSION-linux64.tar.gz && \
-    apt-get purge -y --auto-remove bzip2 && \
+    apt-get purge -y --auto-remove bzip2 
 
 RUN TMPDIR=$HOME/tmp geckodriver
 
