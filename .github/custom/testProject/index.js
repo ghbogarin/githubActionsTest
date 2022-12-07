@@ -1,18 +1,20 @@
 const {By, Key, until} = require('selenium-webdriver');
-const { Builder } = require('selenium-webdriver');
+const { Builder, Session } = require('selenium-webdriver');
 async function example() {
     let firefox = require('selenium-webdriver/firefox');
     const firefoxOptions = new firefox.Options()
+    console.log(firefoxOptions.useGeckoDriver());
+    console.log(firefoxOptions.setBinary('/usr/bin/firefox'))
     firefoxOptions.headless();
-    const driver = await new Builder()
+    const driver = new Builder()
       .forBrowser('firefox')
       .setFirefoxOptions(firefoxOptions)
-      .getCapabilities()
-    console.log(driver.getCapabilities())
-    console.log(driver.getPageLoadStrategy())
-    console.log(driver.getFirefoxOptions())
-    console.log(driver.getHttpAgent())
-    console.log(driver.getServerUrl())
+    const sess = new Session('id_1',{})
+    console.log(sess.getCapabilities())
+    console.log(sess.getPageLoadStrategy())
+    console.log(sess.getFirefoxOptions())
+    console.log(sess.getHttpAgent())
+    console.log(sess.getServerUrl())
     driver.build()
   try {
     await driver.get('https://aulas.ort.edu.uy/login/index.php');
