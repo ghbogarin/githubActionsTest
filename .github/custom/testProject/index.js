@@ -6,8 +6,8 @@ async function example() {
     // console.log(firefoxOptions.useGeckoDriver(true));
     firefoxOptions.setBinary('/usr/bin/firefox')
     firefoxOptions.headless();
-    // const prefs = new logging.Preferences();
-    // prefs.setLevel(logging.Type.PERFORMANCE, logging.Level.ALL);
+    const prefs = new logging.Preferences();
+    prefs.setLevel(logging.Type.PERFORMANCE, logging.Level.ALL);
     firefoxOptions.setLoggingPrefs()
     const driver = new Builder()
       .forBrowser('firefox')
@@ -18,14 +18,12 @@ async function example() {
     // console.log(sess.getFirefoxOptions())
     // console.log(sess.getHttpAgent())
     // console.log(sess.getServerUrl())
+    console.log('before build!')
     driver.build()
-  try {
+    console.log('after build!')
     await driver.get('https://aulas.ort.edu.uy/login/index.php');
     const title = await driver.getTitle();
     console.log(title);
     console.log("termina");
-  } finally {
-    await driver.quit();
-  }
 };
 example();
