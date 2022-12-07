@@ -9,17 +9,17 @@ async function example() {
     const prefs = new logging.Preferences();
     prefs.setLevel(logging.Type.PERFORMANCE, logging.Level.ALL);
     firefoxOptions.setLoggingPrefs()
+    console.log('before build!')
     const driver = new Builder()
       .forBrowser('firefox')
       .setFirefoxOptions(firefoxOptions)
+      .build()
     // const sess = new Session('id_1',{})
     // console.log(sess.getCapabilities())
     // console.log(sess.getPageLoadStrategy())
     // console.log(sess.getFirefoxOptions())
     // console.log(sess.getHttpAgent())
     // console.log(sess.getServerUrl())
-    console.log('before build!')
-    driver.build()
     console.log('after build!')
     await driver.get('https://aulas.ort.edu.uy/login/index.php');
     const title = await driver.getTitle();
