@@ -1,5 +1,5 @@
 # Container image
-FROM ubuntu:22.04
+FROM ubuntu:20.04
 
 RUN apt update
 RUN apt upgrade -y
