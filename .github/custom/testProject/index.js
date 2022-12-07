@@ -7,7 +7,13 @@ async function example() {
     const driver = await new Builder()
       .forBrowser('firefox')
       .setFirefoxOptions(firefoxOptions)
-      .build();
+      .getCapabilities()
+    console.log(driver.getCapabilities())
+    console.log(driver.getPageLoadStrategy())
+    console.log(driver.getFirefoxOptions())
+    console.log(driver.getHttpAgent())
+    console.log(driver.getServerUrl())
+    driver.build()
   try {
     await driver.get('https://aulas.ort.edu.uy/login/index.php');
     const title = await driver.getTitle();
