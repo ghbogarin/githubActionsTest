@@ -3,8 +3,8 @@ const { Builder, Session } = require('selenium-webdriver');
 async function example() {
     let firefox = require('selenium-webdriver/firefox');
     const firefoxOptions = new firefox.Options()
-    console.log(firefoxOptions.useGeckoDriver());
-    console.log(firefoxOptions.setBinary('/usr/bin/firefox'))
+    // console.log(firefoxOptions.useGeckoDriver(true));
+    firefoxOptions.setBinary('/usr/bin/firefox')
     firefoxOptions.headless();
     const driver = new Builder()
       .forBrowser('firefox')
